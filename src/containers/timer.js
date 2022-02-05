@@ -4,12 +4,12 @@ const Timer = () => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [isActive, setIsActive] = useState(false);
+  let timer = null;
   const onStartHandler = () => {
     setIsActive(true);
   };
 
   useEffect(() => {
-    let timer = null;
     if (seconds < 60) {
       if (isActive) {
         timer = setTimeout(() => {
@@ -30,6 +30,7 @@ const Timer = () => {
   };
 
   const onResetHandler = () => {
+    clearTimeout(timer);
     setMinutes(0);
     setSeconds(0);
     setIsActive(false);
