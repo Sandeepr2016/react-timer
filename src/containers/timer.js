@@ -34,9 +34,15 @@ const Timer = () => {
     setSeconds(0);
     setIsActive(false);
   };
+
+  //convert numbets to minutes and seconds
+  let mm, ss;
+  mm = minutes < 10 ? '0' + minutes : minutes;
+  ss = seconds < 10 ? '0' + seconds : seconds;
+
   return (
     <React.Fragment>
-      <div>{minutes + ' : ' + seconds}</div>
+      <div>{mm + ' : ' + ss}</div>
       <div>
         <input type="button" value="Start" onClick={onStartHandler} />
         <input type="button" value="Stop" onClick={onStopHandler} />
